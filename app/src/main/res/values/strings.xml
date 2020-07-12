@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">MovieApp</string>
+    <string name="navigation_bulletin">Bülten</string>,
+    <string name="navigation_home">Ana Sayfa</string>,
+    <string name="navigation_social">Sosyal</string>
+    <string name="navigation_bet_slip">%d Maç\n%f\nOran</string>
+    <string name="navigation_results">Sonuçlar</string>
+    <string name="navigation_my_bets">Kuponlarım</string>
+
+
+    <!--    fonts path-->
+    <string name="path_montserrat_regular">fonts/montserrat_medium.ttf</string>
+    <string name="path_montserrat_medium">fonts/montserrat_regular.ttf</string>
+    <string name="path_montserrat_semibold">fonts/montserrat_semibold.ttf</string>
+    <string name="path_tiemposheadline_bold">fonts/tiemposheadline_bold.ttf</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

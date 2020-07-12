@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="View">
+        <attr name="textWeight" format="enum">
+            <enum name="none" value="-1" />
+            <enum name="regular" value="0" />
+            <enum name="medium" value="1" />
+            <enum name="bold" value="2" />
+            <enum name="light" value="3"/>
+            <enum name="italic" value="4"/>
+            <enum name="bold-italic" value="5"/>
+            <enum name="font_icon" value="6" />
+        </attr>
+    </declare-styleable>
+
+</resources>

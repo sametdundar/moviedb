@@ -31,9 +31,4 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
         super.onDestroy()
         finalize()
     }
-
-    override fun onPause() {
-        overridePendingTransition(0, 0)
-        super.onPause()
-    }
 }

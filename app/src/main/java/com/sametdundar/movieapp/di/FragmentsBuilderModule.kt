@@ -1,71 +1,45 @@
 package com.sametdundar.movieapp.di
 
+import com.sametdundar.movieapp.ui.EmptyFragment
+import com.sametdundar.movieapp.ui.FullScreenContainer
+import com.sametdundar.movieapp.ui.InitTabContainer
+import com.sametdundar.movieapp.ui.fragments.MovieFragment
+import com.sametdundar.movieapp.ui.fragments.ProfileFragment
+import com.sametdundar.movieapp.ui.fragments.TvFragment
+import com.sametdundar.movieapp.ui.navigationtab.MoviesFragmentTabContainer
+import com.sametdundar.movieapp.ui.navigationtab.ProfileFragmentTabContainer
+import com.sametdundar.movieapp.ui.navigationtab.TvFragmentTabContainer
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class FragmentsBuilderModule {
 
-//    @ContributesAndroidInjector
-//    abstract fun contributeEmptyFragment(): EmptyFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeFullScreenContainer(): FullScreenContainer
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeInitTabContainer(): InitTabContainer
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeMoreTabContainer(): MoreTabContainer
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeImportantLocationTabContainer(): ImportantLocationTabContainer
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeExpertOptionsTabContainer(): ExpertOpinionsTabContainer
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeAnnouncementTabContainer(): AnnouncementTabContainer
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeHomeTabContainer(): HomeTabContainer
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeHomeFragment(): HomeFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeAnnouncementFragment(): AnnouncementFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeExpertOptionsFragment(): ExpertOpinionsFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeImportantLocationFragment(): ImportantLocationFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeMoreFragment(): MoreFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeNewsDetailFragment(): NewsDetailFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeAboutFragment(): AboutFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeDirectorFragment(): DirectorFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeContactFragment(): ContactFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeTermsofUseFragment(): TermsofUseFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributePrivacyPolicyFragment(): PrivacyPolicyFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeExpertDetailFragment(): ExpertDetailFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeImportantLocationItemFragment(): ImportantLocationItemFragment
+    @ContributesAndroidInjector
+    abstract fun contributeEmptyFragment(): EmptyFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeFullScreenContainer(): FullScreenContainer
+
+    @ContributesAndroidInjector
+    abstract fun contributeInitTabContainer(): InitTabContainer
+
+    @ContributesAndroidInjector
+    abstract fun contributeMoviesFragmentTabContainer(): MoviesFragmentTabContainer
+
+    @ContributesAndroidInjector
+    abstract fun contributeProfileFragmentTabContainer(): ProfileFragmentTabContainer
+
+    @ContributesAndroidInjector
+    abstract fun contributeTvFragmentTabContainer(): TvFragmentTabContainer
+
+    @ContributesAndroidInjector
+    abstract fun contributeMovieFragment(): MovieFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeProfileFragment(): ProfileFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeTvFragment(): TvFragment
+
 }
