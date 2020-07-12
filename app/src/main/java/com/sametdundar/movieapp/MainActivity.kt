@@ -33,7 +33,7 @@ class MainActivity : BaseActivity(), NavigationBarOnClickListener {
     private lateinit var pagerAdapter: NavigationPagerAdapter
 
 
-    override fun layoutId(): Int = R.layout.activity_main
+    override fun layoutId(): Int? = R.layout.activity_main
 
     override fun initialize() {
         pagerAdapter =

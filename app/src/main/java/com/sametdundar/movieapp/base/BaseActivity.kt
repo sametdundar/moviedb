@@ -13,7 +13,7 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     override fun supportFragmentInjector() = dispatchingAndroidInjector
 
-    protected abstract fun layoutId(): Int
+    protected abstract fun layoutId(): Int?
 
     protected abstract fun initialize()
 
@@ -23,7 +23,9 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layoutId())
+        layoutId()?.let {
+            setContentView(it)
+        }
         initialize()
     }
 
