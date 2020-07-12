@@ -1,5 +1,8 @@
 package com.sametdundar.movieapp
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.sametdundar.movieapp.base.BaseActivity
 import com.sametdundar.movieapp.base.ConnectionManager
@@ -9,9 +12,19 @@ import com.sametdundar.movieapp.ui.adapter.NavigationPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MainActivity : BaseActivity() , NavigationBarOnClickListener {
+class MainActivity : BaseActivity(), NavigationBarOnClickListener {
 
     override fun supportFragmentInjector() = dispatchingAndroidInjector
+
+    companion object {
+        fun newInstance(context: Context) {
+            val intent = Intent(context, MainActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(intent)
+            (context as Activity).finish()
+        }
+
+    }
 
     @Inject
     lateinit var connectionManager: ConnectionManager
@@ -48,11 +61,11 @@ class MainActivity : BaseActivity() , NavigationBarOnClickListener {
     }
 
     override fun onBackPressed() {
-        if (!navManager.consumeBackPress()){
+        if (!navManager.consumeBackPress()) {
 
             if (navigationBar.currentSelectedItem != navigationBar.movies) {
                 navigationBar.changeActiveTab(0)
-            }else{
+            } else {
 //                GeneralUtil.dialogWithOneOptions(
 //                    this,
 //                    "",
