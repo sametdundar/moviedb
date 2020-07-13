@@ -9,6 +9,7 @@ import com.sametdundar.movieapp.base.ConnectionManager
 import com.sametdundar.movieapp.base.fragment_ops.NavigationManager
 import com.sametdundar.movieapp.customview.NavigationBarOnClickListener
 import com.sametdundar.movieapp.ui.adapter.NavigationPagerAdapter
+import com.sametdundar.movieapp.util.GeneralUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -66,14 +67,14 @@ class MainActivity : BaseActivity(), NavigationBarOnClickListener {
             if (navigationBar.currentSelectedItem != navigationBar.movies) {
                 navigationBar.changeActiveTab(0)
             } else {
-//                GeneralUtil.dialogWithOneOptions(
-//                    this,
-//                    "",
-//                    "Are you sure you want to quit PressTR?",
-//                    "Yes",
-//                    "Cancel",
-//                    exitRunnable
-//                )
+                GeneralUtil.dialogWithOneOptions(
+                    this,
+                    "",
+                    "Are you sure you want to quit MovieDB?",
+                    "Yes",
+                    "Cancel",
+                    exitRunnable
+                )
             }
         }
     }
