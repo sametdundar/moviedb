@@ -25,7 +25,7 @@ class NetworkModule {
 
     @Provides
     @Named(PRIMARY_URL)
-    fun providePrimaryURl(): String = "https://press-tr.com/api/"
+    fun providePrimaryURl(): String = "https://api.themoviedb.org/3/"
 
     @Provides
     @Named(TIMEOUT_MILLIS)

@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import com.sametdundar.movieapp.base.AppExecutors
 import com.sametdundar.movieapp.base.ConnectionManager
-import com.sametdundar.movieapp.util.AbsentLiveData
+import com.sametdundar.movieapp.util.livedata.AbsentLiveData
 
 abstract class NetworkServiceWrapper<ResultType, RequestType>
 @MainThread constructor(

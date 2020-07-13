@@ -1,4 +1,4 @@
-package com.sametdundar.movieapp.util
+package com.sametdundar.movieapp.util.livedata
 
 import androidx.lifecycle.LiveData
 

@@ -74,6 +74,10 @@ dependencies {
     implementation deps.dagger.android
     implementation deps.dagger.android_support
 
+    // paging Library
+    implementation deps.paging_library.library
+    implementation deps.support.legacy
+
     kapt deps.dagger.android_support_compiler
     kapt deps.dagger.compiler
     kapt deps.lifecycle.compiler

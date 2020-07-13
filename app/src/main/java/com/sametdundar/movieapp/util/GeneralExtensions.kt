@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.ImageView
 import androidx.annotation.LayoutRes
+import com.bumptech.glide.Glide
 
 
 fun Any?.ifNull(f: () -> Unit) {
@@ -20,4 +22,12 @@ fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false):
 fun hideKeyboardFrom(context: Context?, windowToken: IBinder?) {
     val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
     imm?.hideSoftInputFromWindow(windowToken, 0)
+}
+
+fun ImageView.loadFromURL(url: String) {
+    Glide.with(this)
+        .load(url)
+        .centerCrop()
+        .fitCenter()
+        .into(this)
 }
