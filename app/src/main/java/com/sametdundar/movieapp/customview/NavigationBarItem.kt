@@ -1,6 +1,7 @@
 package com.sametdundar.movieapp.customview
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.Gravity
@@ -13,7 +14,7 @@ import com.sametdundar.movieapp.util.inflate
 class NavigationBarItem : LinearLayout,
     INavigationBarItem {
     private lateinit var icon: ImageView
-    private lateinit var title: AppTextView
+    private lateinit var title: MovieTextView
     private var unselectedIcon: Drawable? = null
     private var selectedIcon: Drawable? = null
 
@@ -39,14 +40,16 @@ class NavigationBarItem : LinearLayout,
         selectedIcon?.let {
             icon.setImageDrawable(it)
         }
-//        title.setOnChangeFontType(FontType.Bold)
+        title.setOnChangeFontType(FontType.Bold)
+        title.setTextColor(Color.parseColor("#d6182a"))
     }
 
     override fun setUnselected() {
         unselectedIcon?.let {
             icon.setImageDrawable(it)
         }
-//        title.setOnChangeFontType(FontType.Regular)
+        title.setOnChangeFontType(FontType.Regular)
+        title.setTextColor(Color.parseColor("#ff999999"))
     }
 
     override fun init(context: Context?, attrs: AttributeSet?) {
@@ -73,7 +76,7 @@ class NavigationBarItem : LinearLayout,
     }
 
     override fun setTitle(title: String) {
-//        this.title.text = title
+        this.title.text = title
     }
 
     override fun setClickListener(listener: OnClickListener) {
@@ -86,6 +89,6 @@ class NavigationBarItem : LinearLayout,
 
     private fun initFields() {
         icon = findViewById(R.id.icon)
-//        title = findViewById(R.id.title)
+        title = findViewById(R.id.title)
     }
 }

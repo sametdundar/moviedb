@@ -14,9 +14,12 @@
         android:layout_height="25dp"
         tools:ignore="ContentDescription" />
 
-<!--    <com.sametdundar.movieapp.customview.AppTextView-->
-<!--        android:id="@+id/title"-->
-<!--        app:textWeight="regular"-->
-<!--        android:text="Merhaba"-->
-<!--        android:textAlignment="center"/>-->
+    <com.sametdundar.movieapp.customview.MovieTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:textWeight="regular"
+        tools:text="Merhaba"
+        android:textSize="10sp"
+        android:textAlignment="center"/>
 </merge>

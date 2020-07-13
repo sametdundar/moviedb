@@ -6,5 +6,6 @@ enum class FontType {
     Bold,
     Light,
     Italic,
-    BoldItalic
+    BoldItalic,
+    Heavy
 }

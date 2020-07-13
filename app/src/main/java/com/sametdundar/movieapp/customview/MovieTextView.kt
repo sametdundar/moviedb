@@ -8,7 +8,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 import com.sametdundar.movieapp.R
 
-open class AppTextView : AppCompatTextView {
+open class MovieTextView : AppCompatTextView {
     private lateinit var fontType: FontType
 
     constructor(context: Context?) : super(context) {
@@ -47,9 +47,7 @@ open class AppTextView : AppCompatTextView {
     private fun setTextDrawableColor(color: Int){
         for (compoundDrawable in this.compoundDrawables) {
 
-            compoundDrawable?.colorFilter= PorterDuffColorFilter(
-                ContextCompat.getColor(context,color),
-                PorterDuff.Mode.SRC_IN)
+            compoundDrawable?.colorFilter= PorterDuffColorFilter(ContextCompat.getColor(context,color),PorterDuff.Mode.SRC_IN)
         }
 
     }

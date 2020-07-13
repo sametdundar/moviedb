@@ -69,23 +69,23 @@ class NavigationBar : ConstraintLayout, View.OnClickListener {
 
     private fun setIcons() {
         movies.setIcon(
-            ContextCompat.getDrawable(context, R.drawable.ic_launcher_background),
-            ContextCompat.getDrawable(context, R.drawable.ic_launcher_background)
+            ContextCompat.getDrawable(context, R.drawable.ic_tab_movies),
+            ContextCompat.getDrawable(context, R.drawable.ic_tab_movies_selected)
         )
         tv.setIcon(
-            ContextCompat.getDrawable(context, R.drawable.ic_launcher_background),
-            ContextCompat.getDrawable(context, R.drawable.ic_launcher_background)
+            ContextCompat.getDrawable(context, R.drawable.ic_tab_tv),
+            ContextCompat.getDrawable(context, R.drawable.ic_tab_tv_selected)
         )
         profile.setIcon(
-            ContextCompat.getDrawable(context, R.drawable.ic_launcher_background),
-            ContextCompat.getDrawable(context, R.drawable.ic_launcher_background)
+            ContextCompat.getDrawable(context, R.drawable.ic_tab_profile),
+            ContextCompat.getDrawable(context, R.drawable.ic_tab_profile_selected)
         )
     }
 
     private fun setTitles() {
-        movies.setTitle(resources.getString(R.string.navigation_home))
-        tv.setTitle(resources.getString(R.string.navigation_social))
-        profile.setTitle(resources.getString(R.string.navigation_bulletin))
+        movies.setTitle(resources.getString(R.string.navigation_movies))
+        tv.setTitle(resources.getString(R.string.navigation_tv))
+        profile.setTitle(resources.getString(R.string.navigation_profile))
     }
 
     fun setOnClickListener(listener: NavigationBarOnClickListener) {

@@ -9,8 +9,7 @@
             <enum name="light" value="3"/>
             <enum name="italic" value="4"/>
             <enum name="bold-italic" value="5"/>
-            <enum name="font_icon" value="6" />
+            <enum name="heavy" value="6" />
         </attr>
     </declare-styleable>
-
 </resources>
