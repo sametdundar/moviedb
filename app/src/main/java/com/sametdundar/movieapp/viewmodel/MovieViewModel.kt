@@ -11,6 +11,7 @@ import com.sametdundar.movieapp.api.Resource
 import com.sametdundar.movieapp.base.BaseResponse
 import com.sametdundar.movieapp.base.pagination.MoviePagedListBuilderBaseResponse
 import com.sametdundar.movieapp.datamanager.repositories.MovieRepository
+import com.sametdundar.movieapp.model.ActorResponse
 import com.sametdundar.movieapp.model.MovieDetailResponse
 import com.sametdundar.movieapp.model.MovieListResultObject
 import com.sametdundar.movieapp.util.ifNull
@@ -25,22 +26,31 @@ class MovieViewModel @Inject constructor(
     private val moviePopularPagedListBuilder: MoviePagedListBuilderBaseResponse<BaseResponse<List<MovieListResultObject>>, MovieListResultObject>
 ) : ViewModel() {
 
-    private var moviesTopRatedLivePagedListBuilder: LiveData<PagedList<MovieListResultObject>>? = null
-    private var moviesNowPlayingLivePagedListBuilder: LiveData<PagedList<MovieListResultObject>>? = null
-    private var moviesPopularLivePagedListBuilder: LiveData<PagedList<MovieListResultObject>>? = null
+    private var moviesTopRatedLivePagedListBuilder: LiveData<PagedList<MovieListResultObject>>? =
+        null
+    private var moviesNowPlayingLivePagedListBuilder: LiveData<PagedList<MovieListResultObject>>? =
+        null
+    private var moviesPopularLivePagedListBuilder: LiveData<PagedList<MovieListResultObject>>? =
+        null
 
     private val _moviesDetail = MutableLiveData<Int>()
 
     fun movieDetail(): LiveData<Resource<MovieDetailResponse>> =
         Transformations.switchMap(_moviesDetail) {
-                repository.getMovieDetail(it)
+            repository.getMovieDetail(it)
+        }
+
+    fun movieActor(): LiveData<Resource<ActorResponse>> =
+        Transformations.switchMap(_moviesDetail) {
+            repository.getActor(it)
         }
 
 
     val moviesTopRated: LiveData<PagedList<MovieListResultObject>>?
         get() {
             moviesTopRatedLivePagedListBuilder.ifNull {
-                moviesTopRatedLivePagedListBuilder = initializedMovieTopRatedPagedListBuilder().build()
+                moviesTopRatedLivePagedListBuilder =
+                    initializedMovieTopRatedPagedListBuilder().build()
             }
             return moviesTopRatedLivePagedListBuilder
         }
@@ -48,7 +58,8 @@ class MovieViewModel @Inject constructor(
     val moviesNowPlaying: LiveData<PagedList<MovieListResultObject>>?
         get() {
             moviesNowPlayingLivePagedListBuilder.ifNull {
-                moviesNowPlayingLivePagedListBuilder = initializedMovieNowPlayingPagedListBuilder().build()
+                moviesNowPlayingLivePagedListBuilder =
+                    initializedMovieNowPlayingPagedListBuilder().build()
             }
             return moviesNowPlayingLivePagedListBuilder
         }
@@ -56,7 +67,8 @@ class MovieViewModel @Inject constructor(
     val moviesPopular: LiveData<PagedList<MovieListResultObject>>?
         get() {
             moviesPopularLivePagedListBuilder.ifNull {
-                moviesPopularLivePagedListBuilder = initializedMoviePopularPagedListBuilder().build()
+                moviesPopularLivePagedListBuilder =
+                    initializedMoviePopularPagedListBuilder().build()
             }
             return moviesPopularLivePagedListBuilder
         }
@@ -66,11 +78,11 @@ class MovieViewModel @Inject constructor(
         moviesTopRatedLivePagedListBuilder = null
     }
 
-    fun onFetchMovieNowPlaying(){
+    fun onFetchMovieNowPlaying() {
         moviesNowPlayingLivePagedListBuilder = null
     }
 
-    fun onFetchMoviePopular(){
+    fun onFetchMoviePopular() {
         moviesPopularLivePagedListBuilder = null
     }
 
@@ -80,24 +92,24 @@ class MovieViewModel @Inject constructor(
         }
     }
 
-    private fun initializedMovieTopRatedPagedListBuilder(): LivePagedListBuilder<Int,MovieListResultObject>{
+    private fun initializedMovieTopRatedPagedListBuilder(): LivePagedListBuilder<Int, MovieListResultObject> {
         return movieTopRatedPagedListBuilder.getPagedListLiveData(
-            initialLoad = {api.fetchMovieTopRated(null).execute()},
-            afterLoad = {pageKey:Int -> api.fetchMovieTopRated(pageKey).execute()}
+            initialLoad = { api.fetchMovieTopRated(null).execute() },
+            afterLoad = { pageKey: Int -> api.fetchMovieTopRated(pageKey).execute() }
         )
     }
 
-    private fun initializedMovieNowPlayingPagedListBuilder(): LivePagedListBuilder<Int,MovieListResultObject>{
+    private fun initializedMovieNowPlayingPagedListBuilder(): LivePagedListBuilder<Int, MovieListResultObject> {
         return movieNowPlayingPagedListBuilder.getPagedListLiveData(
-            initialLoad = {api.fetchMovieNowPlaying(null).execute()},
-            afterLoad = {pageKey:Int -> api.fetchMovieNowPlaying(pageKey).execute()}
+            initialLoad = { api.fetchMovieNowPlaying(null).execute() },
+            afterLoad = { pageKey: Int -> api.fetchMovieNowPlaying(pageKey).execute() }
         )
     }
 
-    private fun initializedMoviePopularPagedListBuilder(): LivePagedListBuilder<Int,MovieListResultObject>{
+    private fun initializedMoviePopularPagedListBuilder(): LivePagedListBuilder<Int, MovieListResultObject> {
         return moviePopularPagedListBuilder.getPagedListLiveData(
-            initialLoad = {api.fetchMoviePopular(null).execute()},
-            afterLoad = {pageKey:Int -> api.fetchMoviePopular(pageKey).execute()}
+            initialLoad = { api.fetchMoviePopular(null).execute() },
+            afterLoad = { pageKey: Int -> api.fetchMoviePopular(pageKey).execute() }
         )
     }
 

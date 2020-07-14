@@ -1,51 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragments.MovieAndTvDetailFragment">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/ivHuge"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:scaleType="fitXY"
-        tools:src="@drawable/appicon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        tools:context=".ui.fragments.MovieAndTvDetailFragment">
 
-    <ImageView
-        android:id="@+id/ivPoster"
-        android:layout_width="120dp"
-        android:layout_height="180dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="205dp"
-        android:scaleType="fitXY"
-        tools:src="@drawable/appicon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/ivHuge"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/appicon" />
 
-    <com.sametdundar.movieapp.customview.MovieTextView
-        android:id="@+id/tvBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="20sp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="30dp"
-        />
+        <ImageView
+            android:id="@+id/ivPoster"
+            android:layout_width="120dp"
+            android:layout_height="180dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="205dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/appicon" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_icshare"
-        app:layout_constraintTop_toTopOf="@id/tvBack"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="16dp"
-        />
+        <com.sametdundar.movieapp.customview.MovieTextView
+            android:id="@+id/tvBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="30dp"
+            android:text="Back"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/ivShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_icshare"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvBack" />
+
+        <com.sametdundar.movieapp.customview.MovieTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivPoster"
+            app:layout_constraintTop_toTopOf="@id/ivPoster"
+            tools:text="MErhaba" />
+
+        <com.sametdundar.movieapp.customview.MovieTextView
+            android:id="@+id/tvDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="20dp"
+            android:text="text detail"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivPoster" />
+
+        <com.sametdundar.movieapp.customview.MovieTextView
+            android:id="@+id/tvPopularity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivPoster"
+            app:layout_constraintTop_toBottomOf="@id/ivHuge"
+            tools:text="MErhaba" />
+
+        <com.sametdundar.movieapp.customview.MovieTextView
+            android:id="@+id/tvGenres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivPoster"
+            app:layout_constraintTop_toBottomOf="@id/tvPopularity"
+            tools:text="MErhaba" />
+
+        <com.sametdundar.movieapp.customview.MovieTextView
+            android:id="@+id/tvRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:textColor="#d6182a"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@id/ivPoster"
+            app:layout_constraintTop_toBottomOf="@id/tvGenres"
+            tools:text="9.8" />
+
+        <ImageView
+            android:id="@+id/ivStar1"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginLeft="12dp"
+            android:src="@drawable/ic_icstar"
+            app:layout_constraintBottom_toBottomOf="@id/tvRate"
+            app:layout_constraintStart_toEndOf="@id/tvRate"
+            app:layout_constraintTop_toTopOf="@id/tvRate" />
+
+        <ImageView
+            android:id="@+id/ivStar2"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginLeft="4dp"
+            android:src="@drawable/ic_icstar"
+            app:layout_constraintBottom_toBottomOf="@id/ivStar1"
+            app:layout_constraintStart_toEndOf="@id/ivStar1"
+            app:layout_constraintTop_toTopOf="@id/ivStar1" />
+
+        <ImageView
+            android:id="@+id/ivStar3"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginLeft="4dp"
+            android:src="@drawable/ic_icstar"
+            app:layout_constraintBottom_toBottomOf="@id/ivStar2"
+            app:layout_constraintStart_toEndOf="@id/ivStar2"
+            app:layout_constraintTop_toTopOf="@id/ivStar2" />
+
+        <ImageView
+            android:id="@+id/ivStar4"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginLeft="4dp"
+            android:src="@drawable/ic_icstar"
+            app:layout_constraintBottom_toBottomOf="@id/ivStar3"
+            app:layout_constraintStart_toEndOf="@id/ivStar3"
+            app:layout_constraintTop_toTopOf="@id/ivStar3" />
+
+        <ImageView
+            android:id="@+id/ivStar5"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginLeft="4dp"
+            android:src="@drawable/ic_icstar"
+            app:layout_constraintBottom_toBottomOf="@id/ivStar4"
+            app:layout_constraintStart_toEndOf="@id/ivStar4"
+            app:layout_constraintTop_toTopOf="@id/ivStar4" />
+
+        <com.sametdundar.movieapp.customview.MovieTextView
+            android:id="@+id/tvActor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="35dp"
+            android:text="Full Cast Crew"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDetail"
+            app:textWeight="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvActor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvActor" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

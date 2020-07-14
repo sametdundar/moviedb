@@ -12,6 +12,7 @@ import com.sametdundar.movieapp.base.BaseResponse
 import com.sametdundar.movieapp.base.pagination.MoviePagedListBuilderBaseResponse
 import com.sametdundar.movieapp.datamanager.repositories.MovieRepository
 import com.sametdundar.movieapp.datamanager.repositories.TvRepository
+import com.sametdundar.movieapp.model.ActorResponse
 import com.sametdundar.movieapp.model.MovieDetailResponse
 import com.sametdundar.movieapp.model.TvListResultObject
 import com.sametdundar.movieapp.model.TvReponse
@@ -36,6 +37,10 @@ class TvViewModel @Inject constructor(
             repository.getTvDetail(it)
         }
 
+    fun tvActor(): LiveData<Resource<ActorResponse>> =
+        Transformations.switchMap(_tvDetail) {
+            repository.getActorTv(it)
+        }
 
     val tvTopRated: LiveData<PagedList<TvListResultObject>>?
         get() {
