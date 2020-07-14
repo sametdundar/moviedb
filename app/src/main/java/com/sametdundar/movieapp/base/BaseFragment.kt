@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.sametdundar.movieapp.AppApplication
+import com.sametdundar.movieapp.MainActivity
 import com.sametdundar.movieapp.R
 import com.sametdundar.movieapp.base.fragment_ops.FragmentTransactionContainer
 import com.sametdundar.movieapp.base.fragment_ops.INavigationManager
 import com.sametdundar.movieapp.base.fragment_ops.TransactionType
 import com.sametdundar.movieapp.di.Injectable
 import com.sametdundar.movieapp.util.IDialogManager
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.concurrent.schedule
 

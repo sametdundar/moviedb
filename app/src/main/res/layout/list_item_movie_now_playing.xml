@@ -39,6 +39,8 @@
         tools:text="Merhaba"
         android:textAllCaps="true"
         android:layout_margin="6dp"
+        android:textColor="#222222"
+
         />
 
 

@@ -9,7 +9,7 @@
         android:id="@+id/cvPhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="14dp"
+        android:layout_margin="20dp"
         app:cardCornerRadius="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,14 +22,15 @@
 
             <ImageView
                 android:id="@+id/ivPhoto"
-                android:layout_width="140dp"
-                android:layout_height="210dp"
+                android:layout_width="325dp"
+                android:layout_height="175dp"
                 android:scaleType="fitXY"
+                tools:src="@drawable/appicon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/appicon" />
+                />
 
             <ImageView
                 android:id="@+id/ivRate"
@@ -44,43 +45,32 @@
                 android:id="@+id/tvRate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="9.7"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="@id/ivRate"
                 app:layout_constraintEnd_toEndOf="@id/ivRate"
                 app:layout_constraintStart_toStartOf="@id/ivRate"
                 app:layout_constraintTop_toTopOf="@id/ivRate"
-                tools:text="9.7" />
-
-            <com.sametdundar.movieapp.customview.MovieTextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="@id/ivPhoto"
-                app:layout_constraintStart_toStartOf="@id/ivPhoto"
-                tools:text="Name"
-                app:textWeight="bold"
-                android:layout_marginLeft="4dp"
-                />
-
-            <com.sametdundar.movieapp.customview.MovieTextView
-                android:id="@+id/tvYear"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toTopOf="@id/tvName"
-                app:layout_constraintStart_toStartOf="@id/ivPhoto"
-                tools:text="Name"
-                app:textWeight="regular"
-                android:layout_marginLeft="4dp"
-                />
-
-
+                ></com.sametdundar.movieapp.customview.MovieTextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </androidx.cardview.widget.CardView>
+
+    <com.sametdundar.movieapp.customview.MovieTextView
+        android:id="@+id/tvMovie"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textAllCaps="true"
+        android:textColor="#222222"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@id/cvPhoto"
+        app:layout_constraintStart_toStartOf="@id/cvPhoto"
+        app:layout_constraintTop_toBottomOf="@id/cvPhoto"
+        app:textWeight="bold"
+        tools:text="Merhaba" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

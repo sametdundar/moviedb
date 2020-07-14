@@ -18,6 +18,9 @@ class MainActivity : BaseActivity(), NavigationBarOnClickListener {
     override fun supportFragmentInjector() = dispatchingAndroidInjector
 
     companion object {
+        const val MOVIE = 0
+        const val TV = 1
+        const val PROFILE = 2
         fun newInstance(context: Context) {
             val intent = Intent(context, MainActivity::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -46,11 +49,18 @@ class MainActivity : BaseActivity(), NavigationBarOnClickListener {
         navigationPager.adapter = pagerAdapter
         navigationPager.offscreenPageLimit = pagerAdapter.count
         connectionManager.setActivity(this)
+        setTitle("MOVIES")
     }
 
     override fun onItemSelected(position: Int) {
         navManager.setConsumerName(pagerAdapter.getClassName(position))
         navigationPager.setCurrentItem(position, false)
+        when(position){
+            MOVIE -> setTitle("MOVIES")
+            TV -> setTitle("TV")
+            PROFILE -> setTitle("PROFILE")
+
+        }
     }
 
     override fun onItemReselected(position: Int) {
@@ -81,6 +91,11 @@ class MainActivity : BaseActivity(), NavigationBarOnClickListener {
 
     private val exitRunnable = Runnable {
         finishAffinity()
+    }
+
+
+    fun setTitle(title:String){
+        tvTitle.text = title
     }
 
 }

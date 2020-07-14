@@ -30,6 +30,9 @@ class MoviesPopularAdapter(
 
         fun bind(modal: MovieListResultObject) {
             itemView.ivPhoto.loadFromURL(AppSettings.IMAGE_URL+ modal.poster_path)
+            itemView.tvRate.text = modal.vote_average.toString()
+            itemView.tvName.text = modal.original_title
+            itemView.tvYear.text = modal.release_date.substring(0,4)
         }
     }
 }

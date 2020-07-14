@@ -37,7 +37,7 @@ class MovieFragment : BaseFragment() {
 
     private val moviesTopRatedAdapter by lazy {
         MoviesTopRatedAdapter {
-//            navigationManager?.onReplace(
+            //            navigationManager?.onReplace(
 ////                LotteryDetailFragment.newInstance(it), TransactionType.Replace
 //            )
         }
@@ -80,7 +80,7 @@ class MovieFragment : BaseFragment() {
         observeData()
     }
 
-    private fun observeData(){
+    private fun observeData() {
 
         viewModel.moviesTopRated?.removeObservers(viewLifecycleOwner)
         viewModel.onFetchMovieTopRate()
@@ -88,11 +88,11 @@ class MovieFragment : BaseFragment() {
 
         viewModel.moviesNowPlaying?.removeObservers(viewLifecycleOwner)
         viewModel.onFetchMovieNowPlaying()
-        viewModel.moviesNowPlaying?.observe(viewLifecycleOwner,observerMoviesNowPlaying)
+        viewModel.moviesNowPlaying?.observe(viewLifecycleOwner, observerMoviesNowPlaying)
 
         viewModel.moviesPopular?.removeObservers(viewLifecycleOwner)
         viewModel.onFetchMoviePopular()
-        viewModel.moviesPopular?.observe(viewLifecycleOwner,observerMoviesPopular)
+        viewModel.moviesPopular?.observe(viewLifecycleOwner, observerMoviesPopular)
     }
 
     private val observerMoviesTopRated = Observer<PagedList<MovieListResultObject>> {
@@ -118,8 +118,8 @@ class MovieFragment : BaseFragment() {
     }
 
     private fun initAdapterMoviesPopular() {
-        rvPopular.layoutManager = GridLayoutManager(context, 2)
-        rvPopular.adapter = moviesNowPlayingAdapter
+        rvPopular.layoutManager = GridLayoutManager(context, 2, GridLayoutManager.HORIZONTAL, false)
+        rvPopular.adapter = moviesPopularAdapter
     }
 
 }
