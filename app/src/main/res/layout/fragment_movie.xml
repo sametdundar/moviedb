@@ -11,6 +11,28 @@
         android:layout_height="match_parent"
         tools:context=".ui.fragments.MovieFragment">
 
+        <RelativeLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <com.sametdundar.movieapp.customview.MovieTextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Movies"
+                android:gravity="center"
+                android:textColor="#222222"
+                android:textAllCaps="true"
+                android:layout_centerInParent="true"
+                app:textWeight="bold"
+                android:textSize="20sp"
+                />
+        </RelativeLayout>
+
 
         <com.sametdundar.movieapp.customview.MovieTextView
             android:id="@+id/tvTopRated"
@@ -20,7 +42,7 @@
             android:text="Top Rated Movies"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:textWeight="bold" />
 
         <androidx.recyclerview.widget.RecyclerView

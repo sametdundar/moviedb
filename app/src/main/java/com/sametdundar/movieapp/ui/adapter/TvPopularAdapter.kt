@@ -32,6 +32,9 @@ class TvPopularAdapter(
             itemView.ivPhoto.loadFromURL(AppSettings.IMAGE_URL+modal.backdrop_path)
             itemView.tvMovie.text = modal.original_name
             itemView.tvRate.text = modal.vote_average.toString()
+            itemView.setOnClickListener {
+                onClickDetailCallback.invoke(modal.id)
+            }
         }
     }
 }

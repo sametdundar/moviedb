@@ -36,6 +36,7 @@ class MoviesFragmentTabContainer : StackOwnerFragment(), INavigationManager, Inj
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navManager.setConsumerName(MoviesFragmentTabContainer::class.java.name)
         Log.d("navManager", navManager.hashCode().toString())
 
     }

@@ -49,18 +49,11 @@ class MainActivity : BaseActivity(), NavigationBarOnClickListener {
         navigationPager.adapter = pagerAdapter
         navigationPager.offscreenPageLimit = pagerAdapter.count
         connectionManager.setActivity(this)
-        setTitle("MOVIES")
     }
 
     override fun onItemSelected(position: Int) {
         navManager.setConsumerName(pagerAdapter.getClassName(position))
         navigationPager.setCurrentItem(position, false)
-        when(position){
-            MOVIE -> setTitle("MOVIES")
-            TV -> setTitle("TV")
-            PROFILE -> setTitle("PROFILE")
-
-        }
     }
 
     override fun onItemReselected(position: Int) {
@@ -93,9 +86,5 @@ class MainActivity : BaseActivity(), NavigationBarOnClickListener {
         finishAffinity()
     }
 
-
-    fun setTitle(title:String){
-        tvTitle.text = title
-    }
 
 }

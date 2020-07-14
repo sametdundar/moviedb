@@ -31,6 +31,9 @@ class MoviesNowPlayingAdapter(
         fun bind(modal: MovieListResultObject) {
             itemView.tvMovie.text = modal.original_title
             itemView.ivPhoto.loadFromURL(AppSettings.IMAGE_URL+modal.poster_path)
+            itemView.setOnClickListener {
+                onClickDetailCallback.invoke(modal.id)
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ package com.sametdundar.movieapp.di
 import com.sametdundar.movieapp.ui.EmptyFragment
 import com.sametdundar.movieapp.ui.FullScreenContainer
 import com.sametdundar.movieapp.ui.InitTabContainer
+import com.sametdundar.movieapp.ui.fragments.MovieAndTvDetailFragment
 import com.sametdundar.movieapp.ui.fragments.MovieFragment
 import com.sametdundar.movieapp.ui.fragments.ProfileFragment
 import com.sametdundar.movieapp.ui.fragments.TvFragment
@@ -41,5 +42,8 @@ abstract class FragmentsBuilderModule {
 
     @ContributesAndroidInjector
     abstract fun contributeTvFragment(): TvFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeMovieDetailFragment(): MovieAndTvDetailFragment
 
 }

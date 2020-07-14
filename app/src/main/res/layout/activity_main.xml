@@ -6,35 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
-
-        <com.sametdundar.movieapp.customview.MovieTextView
-            android:id="@+id/tvTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="Merhaba"
-            android:gravity="center"
-            android:textColor="#222222"
-            android:textAllCaps="true"
-            android:layout_centerInParent="true"
-            app:textWeight="bold"
-            android:textSize="20sp"
-            />
-    </RelativeLayout>
-
-
     <com.sametdundar.movieapp.customview.NoSwipePager
         android:id="@+id/navigationPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/navigationBar"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <com.sametdundar.movieapp.customview.NavigationBar

@@ -9,20 +9,17 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.paging.PagedList
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.sametdundar.movieapp.R
 import com.sametdundar.movieapp.base.BaseFragment
-import com.sametdundar.movieapp.model.MovieListResultObject
+import com.sametdundar.movieapp.base.fragment_ops.TransactionType
 import com.sametdundar.movieapp.model.TvListResultObject
-import com.sametdundar.movieapp.ui.adapter.MoviesNowPlayingAdapter
+import com.sametdundar.movieapp.model.Type
 import com.sametdundar.movieapp.ui.adapter.TvPopularAdapter
 import com.sametdundar.movieapp.ui.adapter.TvTopRatedAdapter
-import com.sametdundar.movieapp.viewmodel.MovieViewModel
 import com.sametdundar.movieapp.viewmodel.TvViewModel
-import kotlinx.android.synthetic.main.fragment_movie.*
 import kotlinx.android.synthetic.main.fragment_movie.rvPopular
 import kotlinx.android.synthetic.main.fragment_tv.*
 import javax.inject.Inject
@@ -46,17 +43,17 @@ class TvFragment : BaseFragment() {
 
     private val tvTopRatedAdapter by lazy {
         TvTopRatedAdapter {
-            //            navigationManager?.onReplace(
-////                LotteryDetailFragment.newInstance(it), TransactionType.Replace
-//            )
+            navigationManager?.onReplace(
+                MovieAndTvDetailFragment.newInstance(it,Type.tv), TransactionType.Replace
+            )
         }
     }
 
     private val tvPopularAdapter by lazy {
         TvPopularAdapter {
-            //            navigationManager?.onReplace(
-////                LotteryDetailFragment.newInstance(it), TransactionType.Replace
-//            )
+            navigationManager?.onReplace(
+                MovieAndTvDetailFragment.newInstance(it,Type.tv), TransactionType.Replace
+            )
         }
     }
 
@@ -77,7 +74,7 @@ class TvFragment : BaseFragment() {
     }
 
     private fun observeData() {
-
+        showLoading()
         viewModel.tvTopRated?.removeObservers(viewLifecycleOwner)
         viewModel.onFetchTvTopRate()
         viewModel.tvTopRated?.observe(viewLifecycleOwner, observerTvTopRated)
@@ -89,10 +86,12 @@ class TvFragment : BaseFragment() {
     }
 
     private val observerTvTopRated = Observer<PagedList<TvListResultObject>> {
+        dispatchLoading()
         tvTopRatedAdapter.submitList(if (it.isEmpty()) null else it)
     }
 
     private val observerTvPopular = Observer<PagedList<TvListResultObject>> {
+        dispatchLoading()
         tvPopularAdapter.submitList(if (it.isEmpty()) null else it)
     }
 

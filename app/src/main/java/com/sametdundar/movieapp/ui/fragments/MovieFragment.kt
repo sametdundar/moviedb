@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.sametdundar.movieapp.R
 import com.sametdundar.movieapp.base.BaseFragment
+import com.sametdundar.movieapp.base.fragment_ops.TransactionType
 import com.sametdundar.movieapp.model.MovieListResultObject
+import com.sametdundar.movieapp.model.Type
 import com.sametdundar.movieapp.ui.adapter.MoviesNowPlayingAdapter
 import com.sametdundar.movieapp.ui.adapter.MoviesPopularAdapter
 import com.sametdundar.movieapp.ui.adapter.MoviesTopRatedAdapter
@@ -37,25 +39,25 @@ class MovieFragment : BaseFragment() {
 
     private val moviesTopRatedAdapter by lazy {
         MoviesTopRatedAdapter {
-            //            navigationManager?.onReplace(
-////                LotteryDetailFragment.newInstance(it), TransactionType.Replace
-//            )
+            navigationManager?.onReplace(
+                MovieAndTvDetailFragment.newInstance(it,Type.movie), TransactionType.Replace
+            )
         }
     }
 
     private val moviesNowPlayingAdapter by lazy {
         MoviesNowPlayingAdapter {
-            //            navigationManager?.onReplace(
-////                LotteryDetailFragment.newInstance(it), TransactionType.Replace
-//            )
+            navigationManager?.onReplace(
+                MovieAndTvDetailFragment.newInstance(it,Type.movie), TransactionType.Replace
+            )
         }
     }
 
     private val moviesPopularAdapter by lazy {
         MoviesPopularAdapter {
-            //            navigationManager?.onReplace(
-////                LotteryDetailFragment.newInstance(it), TransactionType.Replace
-//            )
+            navigationManager?.onReplace(
+                MovieAndTvDetailFragment.newInstance(it,Type.movie), TransactionType.Replace
+            )
         }
     }
 
@@ -82,6 +84,7 @@ class MovieFragment : BaseFragment() {
 
     private fun observeData() {
 
+        showLoading()
         viewModel.moviesTopRated?.removeObservers(viewLifecycleOwner)
         viewModel.onFetchMovieTopRate()
         viewModel.moviesTopRated?.observe(viewLifecycleOwner, observerMoviesTopRated)
@@ -96,14 +99,17 @@ class MovieFragment : BaseFragment() {
     }
 
     private val observerMoviesTopRated = Observer<PagedList<MovieListResultObject>> {
+        dispatchLoading()
         moviesTopRatedAdapter.submitList(if (it.isEmpty()) null else it)
     }
 
     private val observerMoviesNowPlaying = Observer<PagedList<MovieListResultObject>> {
+        dispatchLoading()
         moviesNowPlayingAdapter.submitList(if (it.isEmpty()) null else it)
     }
 
     private val observerMoviesPopular = Observer<PagedList<MovieListResultObject>> {
+        dispatchLoading()
         moviesPopularAdapter.submitList(if (it.isEmpty()) null else it)
     }
 

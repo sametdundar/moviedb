@@ -31,6 +31,9 @@ class TvTopRatedAdapter(
         fun bind(modal: TvListResultObject) {
             itemView.tvMovie.text = modal.original_name
             itemView.ivPhoto.loadFromURL(AppSettings.IMAGE_URL+modal.poster_path)
+            itemView.setOnClickListener {
+                onClickDetailCallback.invoke(modal.id)
+            }
         }
     }
 }

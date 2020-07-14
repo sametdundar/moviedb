@@ -30,8 +30,9 @@ class MoviesTopRatedAdapter(
 
         fun bind(modal: MovieListResultObject) {
             itemView.ivTopRated.loadFromURL(AppSettings.IMAGE_URL+modal.backdrop_path)
-//            itemView.tvMovie.text = modal.title
-//            itemView.ivPhoto.loadFromURL(AppSettings.IMAGE_URL+modal.poster_path)
+            itemView.setOnClickListener {
+                onClickDetailCallback.invoke(modal.id)
+            }
         }
     }
 }
